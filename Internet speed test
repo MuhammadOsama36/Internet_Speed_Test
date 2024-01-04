@@ -1,0 +1,23 @@
+pip install speedtest-cli
+import speedtest
+
+def perform_speed_test():
+    st = speedtest.Speedtest()
+    
+    # Get a best server
+    st.get_best_server()
+    
+    # Download speed in bits per second
+    download_speed = st.download()
+    
+    # Upload speed in bits per second
+    upload_speed = st.upload()
+    
+    # Convert speeds to megabits per second for readabilty
+    download_speed_mbps = download_speed / 1_000_000
+    upload_speed_mbps = upload_speed / 1_000_000
+    
+    print(f'Download Speed: {download_speed_mbps:.2f} Mbps')
+    print(f'Upload Speed: {upload_speed_mbps:.2f} Mbps')
+if __name__ == '__main__':
+    perform_speed_test()
